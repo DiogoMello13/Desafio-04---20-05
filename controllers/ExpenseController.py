@@ -81,6 +81,12 @@ class ExpenseController():
 
         return redirect('/dashboard')
 
+    def delete(id):
+        expense = Expenses.query.filter_by(id=id).first()
+        db.session.delete(expense)
+        db.session.commit()
+        return redirect('/dashboard')
+      
     def pay(id):
         if 'user_id' not in session:
             flash('Faça o login novamente', 'error')

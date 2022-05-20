@@ -54,6 +54,10 @@ def expenses_store():
 def expenses_update(id):
   return ExpenseController.update(id)
 
+@app.route('/expenses/delete/<int:id>')
+def expenses_delete(id):
+  return ExpenseController.delete(id)
+
 @app.route('/expenses/pay/<int:id>')
 def expenses_pay(id):
   return ExpenseController.pay(id)
